@@ -112,6 +112,7 @@
 
       const handleLogin = async e => {
         e.preventDefault();
+        oninvalid="this.setCustomValidity('Please Enter valid email')"
         const email = new FormData(e.target).get("email");
         if (email) {
           /* One-liner login 🤯 */
