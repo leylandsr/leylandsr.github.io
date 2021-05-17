@@ -28,7 +28,7 @@
           <div class="container">
             <h1>Enter your protonmail email address to confirm you are part of the #protongang</h1>
             <form onsubmit="handleLogin(event)">
-              <input type="email" name="email" required="required" placeholder="Enter your email" oninvalid="this.setCustomValidity('Please Enter a valid @protonmai.ch address')" />
+              <input type="email" name="email" required="required" placeholder="Enter your email" />
               <button type="submit">Send</button>
             </form>
           </div>
@@ -113,6 +113,12 @@
       const handleLogin = async e => {
         e.preventDefault();
         const email = new FormData(e.target).get("email");
+        
+        if (email) {
+         /* Client side check of email domain */
+          alert(email);
+        }
+        
         if (email) {
           /* One-liner login 🤯 */
           await magic.auth.loginWithMagicLink({ email });
